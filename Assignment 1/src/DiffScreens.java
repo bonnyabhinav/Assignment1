@@ -1,0 +1,30 @@
+import java.awt.Color;
+import java.awt.Cursor;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class DiffScreens {
+	private String key[] = new String[10];
+	public void creatingLabels(int x, int y, int counter)
+	{
+		JLabel label = new JLabel();
+		DefaultWords dw = new DefaultWords();
+		JFrame win1 = new JFrame("Gloss World");
+		key = dw.getWords();
+		System.out.println("Got here");
+		
+		y = y + 25*counter;
+		
+		label.setText(key[counter]);
+		label.setBounds(x,y,1000,100);
+		label.setForeground(Color.BLUE.darker());
+		label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		win1.add(label);
+		win1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		win1.setSize(500,500);
+		win1.setLayout(null);
+		win1.setVisible(true);
+	}
+}
