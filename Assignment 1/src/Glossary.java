@@ -6,12 +6,10 @@
  * @author abhin
  *
  */
-
-import javax.swing.Icon;
+//import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 import java.awt.event.*;
 
@@ -24,35 +22,19 @@ public class Glossary extends JFrame{
 	{
 		/*Creating a Window and adding buttons and operations*/
 		Glossary gui = new Glossary();
-		//batchFile bt = new batchFile();
 		Screen sc = new Screen();
-		//DiffScreens sc = new DiffScreens();
-		DefaultWords dw = new DefaultWords();
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		gui.setTitle("Easy to Use Glossary");
 		
-		Icon start = new ImageIcon("giphy.gif");
-		JButton begin = new JButton(start);
+		//Icon start = new ImageIcon("giphy.gif");
+		JButton begin = new JButton("Let's BEGIN");
 		
-		begin.setIcon(start);
+		//begin.setIcon(start);
 		begin.setBounds(150,100,200,200);
 		begin.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				//JFrame glossary = new JFrame("Easy to Use Glossary");
-				//bt.setLine("C:\\Users\\abhin\\Desktop\\word_list");
-				//bt.separateList(bt.getLine());
-				
-				//System.out.println("list of words");
-				//System.out.println();
-				//for(int i = 0; i<10;i++)
-				//{
-				//	System.out.println(bt.getWord()[i]);
-				//}
-				for(int i = 0; i < dw.getSize(); i++)
-				{
-					sc.defaultScreen();
-				}
+					sc.regularScreen();
 			}
 		});
 		gui.add(begin);

@@ -1,5 +1,10 @@
+
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 
 public class Brief {
 	private String meaning[] = new String[100];
@@ -16,10 +21,14 @@ public class Brief {
 		JLabel lb2,lb1;
 
 		lb1 = new JLabel(word[i]);
+		lb1.setFont(new Font("Times New Roman",350,100));
 		lb1.setBounds(50,50,1000,100);
 		lb2 = new JLabel(meaning[i]);
-		lb2.setBounds(100,100,1000,100);
+		lb2.setFont(new Font("Times New Roman",100,20));
+		lb2.setBounds(100,150,1000,100);
+
 		
+		lb1.setForeground(new Color(120, 90, 40));
 		mean1.add(lb1);
 		mean1.add(lb2);
 		

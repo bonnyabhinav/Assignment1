@@ -1,7 +1,8 @@
 
 public class DefaultWords {
-	private static final String w1[] = {"Abate", "Chicanery", "Chivalery","Trivial"}; 
-	private static final String m1[] = {"become less in amount or intensity","the use of trick to deceive someone"};
+	private static final String w1[] = {"Abate", "Chicanery", "Chivalery","Trivial", "Mohanjodaro"}; 
+	private static final String m1[] = {"become less in amount or intensity","the use of trick to deceive someone",
+			"courteous behavior, especially that of a man toward women","of little value or importance"};
 	public String[] getWords() {
 		return w1;
 	}
