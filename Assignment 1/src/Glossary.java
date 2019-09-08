@@ -7,6 +7,7 @@
  *
  */
 //import javax.swing.Icon;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,17 +28,19 @@ public class Glossary extends JFrame{
 		
 		gui.setTitle("Easy to Use Glossary");
 		
-		//Icon start = new ImageIcon("giphy.gif");
-		JButton begin = new JButton("Let's BEGIN");
-		
-		//begin.setIcon(start);
+		Icon start = new ImageIcon("go_tigers.JPEG");
+		JButton begin = new JButton(start);
 		begin.setBounds(150,100,200,200);
+		begin.setIcon(start);
+		gui.add(begin);
+		
 		begin.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+					gui.setVisible(false);
 					sc.regularScreen();
 			}
 		});
-		gui.add(begin);
+		
 		gui.setSize(500,500);
 		gui.setLayout(null);
 		gui.setVisible(true);

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
+
 public class Brief {
 	private String meaning[] = new String[100];
 	private String word[] = new String[20];
@@ -26,7 +27,6 @@ public class Brief {
 		lb2 = new JLabel(meaning[i]);
 		lb2.setFont(new Font("Times New Roman",100,20));
 		lb2.setBounds(100,150,1000,100);
-
 		
 		lb1.setForeground(new Color(120, 90, 40));
 		mean1.add(lb1);

@@ -18,7 +18,6 @@ public class batchFile {
 				ctr = ctr + 1;
 				System.out.println(ctr);
 			}
-			//Scanner s2 = new Scanner(new File(file));
 			for(int i = 0; i < ctr; i++) {
 				line[i] = br.readLine();
 				System.out.println(line[i]);
