@@ -1,0 +1,94 @@
+
+
+import java.awt.Color;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
+
+public class Brief {
+	private String meaning[] = new String[100];
+	private String word[] = new String[20];
+	
+	public void briefMeaning(int i) {
+		DefaultWords dw = new DefaultWords();
+
+		System.out.println("Value = "+i);
+		word = dw.getWords();
+		meaning = dw.getMean();
+		Screen sc = new Screen();
+		JFrame mean1 = new JFrame("Meaning");
+		JLabel lb2,lb1,lb3 = new JLabel();
+		JButton jb1 = new JButton("BACK");
+		
+		jb1.setBounds(250,400,100,40);
+		
+		if(word[i] == "Prodigal")
+		{
+			lb1 = new JLabel(word[i]);
+			lb1.setFont(new Font("Times New Roman",350,100));
+			lb1.setBounds(50,50,1000,100);
+			
+			if(meaning[i].contains("extravagant"))
+				lb3.setText("Extravagant");
+			
+			lb3.setFont(new Font("Times New Roman",20,20));
+			lb3.setBounds(300,150,1000,100);
+			mean1.add(lb3);
+			
+			lb2 = new JLabel(meaning[i]);
+			lb2.setFont(new Font("Times New Roman",100,20));
+			lb2.setBounds(100,150,1000,100);
+			
+			lb1.setForeground(new Color(120, 90, 40));
+		}
+		else if(word[i] == "Laudable")
+		{
+			lb1 = new JLabel(word[i]);
+			lb1.setFont(new Font("Times New Roman",350,100));
+			lb1.setBounds(50,50,1000,100);
+			if(meaning[i].contains("commendation"))
+				lb3 = new JLabel("Commendation");
+			
+			lb2 = new JLabel(meaning[i]);
+			lb2.setFont(new Font("Times New Roman",100,20));
+			lb2.setBounds(100,150,1000,100);
+			
+			lb1.setForeground(new Color(120, 90, 40));
+		}
+		else
+		{
+			lb1 = new JLabel(word[i]);
+			lb1.setFont(new Font("Times New Roman",350,100));
+			lb1.setBounds(50,50,1000,100);
+			lb2 = new JLabel(meaning[i]);
+			lb2.setFont(new Font("Times New Roman",100,20));
+			lb2.setBounds(100,150,1000,100);
+			
+			lb1.setForeground(new Color(120, 90, 40));
+		}
+		
+		mean1.add(lb1);
+		mean1.add(lb2);
+		mean1.add(jb1);
+		
+		jb1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+					mean1.setVisible(false);
+					sc.regularScreen();
+			}
+		});
+		
+		mean1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mean1.setSize(700,500);
+		mean1.setLayout(null);
+		mean1.setVisible(true);
+	}
+	
+}

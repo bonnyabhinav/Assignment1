@@ -1,0 +1,41 @@
+
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Brief {
+	private String meaning[] = new String[100];
+	private String word[] = new String[20];
+	
+	public void briefMeaning(int i) {
+		DefaultWords dw = new DefaultWords();
+
+		System.out.println("Value = "+i);
+		word = dw.getWords();
+		meaning = dw.getMean();
+		
+		JFrame mean1 = new JFrame("Meaning");
+		JLabel lb2,lb1;
+
+		lb1 = new JLabel(word[i]);
+		lb1.setFont(new Font("Times New Roman",350,100));
+		lb1.setBounds(50,50,1000,100);
+		lb2 = new JLabel(meaning[i]);
+		lb2.setFont(new Font("Times New Roman",100,20));
+		lb2.setBounds(100,150,1000,100);
+
+		
+		lb1.setForeground(new Color(120, 90, 40));
+		mean1.add(lb1);
+		mean1.add(lb2);
+		
+		mean1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mean1.setSize(500,500);
+		mean1.setLayout(null);
+		mean1.setVisible(true);
+	}
+	
+}

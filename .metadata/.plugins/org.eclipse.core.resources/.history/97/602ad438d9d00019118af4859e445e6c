@@ -1,0 +1,36 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Brief {
+	private int value;
+	private JLabel lb;
+	private String meaning[] = new String[100];
+	public void briefMeaning(int i) {
+		Screen sc = new Screen();
+		DefaultWords dw = new DefaultWords();
+		value = sc.getFlag();
+		System.out.println("Value = "+value);
+		lb = sc.getLabel();
+		meaning = dw.getMean();
+		
+		JFrame mean1 = new JFrame("Meaning");
+		JLabel lb2;
+		
+		lb.setBounds(50,50,1000,100);
+		
+		lb2 = new JLabel(meaning[value]);
+		lb2.setBounds(100,100,1000,100);
+		
+		mean1.add(lb);
+		mean1.add(lb2);
+		
+		mean1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mean1.setSize(500,500);
+		mean1.setLayout(null);
+		mean1.setVisible(true);
+	}
+	public void setValue(int i) {
+		value = i;
+	}
+	
+}

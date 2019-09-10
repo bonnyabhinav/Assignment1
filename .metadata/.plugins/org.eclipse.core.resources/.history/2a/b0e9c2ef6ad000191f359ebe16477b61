@@ -1,0 +1,43 @@
+/**
+ * 
+ */
+
+/**
+ * @author abhin
+ *
+ */
+
+import javax.swing.*;
+import javax.swing.JFrame;
+import java.io.*;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.event.*;
+import java.util.Scanner;
+
+
+public class Glossary extends JFrame{
+/*Create an HTML file that have the complete glossary*/
+/*This particular class will have some additional functions*/
+/*Create link for every word, search option, */
+	public static void main(String args[])
+	{
+		/*Creating a Window and adding buttons and operations*/
+		Glossary gui = new Glossary();
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		gui.setTitle("Easy to Use Glossary");
+		
+		Icon start = new ImageIcon("giphy.gif");
+		JButton begin = new JButton(start);
+		begin.setIcon(start);
+		begin.setBounds(150,100,200,200);
+		
+		gui.add(begin);
+		gui.setSize(500,500);
+		gui.setLayout(null);
+		gui.setVisible(true);
+		
+	}
+}
+

@@ -19,7 +19,6 @@ import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
-import javax.swing.table.DefaultTableModel;
 
 public class Screen {
 
@@ -28,12 +27,13 @@ public class Screen {
 	private JButton jb1, jb2, jb3;
 	private JPanel panel = new JPanel();
 	private Brief b1 = new Brief();
+	
 	private JLabel heading = new JLabel();
 	private JSeparator sep1 = new JSeparator(SwingConstants.HORIZONTAL);
 	private Border clear = BorderFactory.createLineBorder(Color.black);
 	private Box box1 = Box.createVerticalBox(), box2 = Box.createVerticalBox();
 	private boolean flag = true, flag1 = true, flag2 = true;
-	private JScrollPane sp1 = new JScrollPane();
+	private JScrollPane sp1 = new JScrollPane(), sp2 = new JScrollPane(), sp3 = new JScrollPane();
 	
 	public void defaultScreen() {
 		int x = 50,y = 50, counter = 25;
@@ -59,7 +59,7 @@ public class Screen {
 			lb1[i].setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			
 			y = y + counter*i;
-
+	
 			lb1[i].addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
 					onMouseClicked(e);
@@ -70,19 +70,21 @@ public class Screen {
 		/*Making it more General*/
 		
 		box1.setBounds(30,100,250,250);
-		box1.setBorder(clear);
+		sp2.setBounds(30,100,400,250);
+		sp2.setViewportView(box1);
+		//box1.setBorder(clear);
 		
 	}
 	public JLabel[] getLabel() {
 		return lb1;
 	}
 	 private void onMouseClicked(MouseEvent e) {
-	        for (int i = 0; i < 10; i++) {
+	       for (int i = 0; i < 10; i++) {
             	if (e.getSource() == lb1[i]) {
 	                win1.setVisible(false);
 	                b1.briefMeaning(i);
 	            }
-	        }     
+	       }
 	    }
 	 public void regularScreen() {
 		 heading.setText("EASY-PEASY");
@@ -97,9 +99,9 @@ public class Screen {
 				 public void actionPerformed(ActionEvent e) {
 					 if(flag == true)
 					 {
-						 box1.setVisible(true);
+						 sp2.setVisible(true);
 						 defaultScreen();
-						 box2.setVisible(false);
+						 sp3.setVisible(false);
 						 sp1.setVisible(false);
 					 }
 				 }
@@ -109,9 +111,9 @@ public class Screen {
 				 public void actionPerformed(ActionEvent e) {
 					 if(flag1 == true)
 					 {
-						 box2.setVisible(true);
+						 sp3.setVisible(true);
 						 alphaScreen();
-						 box1.setVisible(false);
+						 sp2.setVisible(false);
 						 sp1.setVisible(false);
 					 }
 				 }
@@ -123,8 +125,8 @@ public class Screen {
 					 {
 						 sp1.setVisible(true); 
 						 listScreen();
-						 box1.setVisible(false);
-						 box2.setVisible(false);
+						 sp2.setVisible(false);
+						 sp3.setVisible(false);
 					 }
 				 }
 			 });
@@ -139,12 +141,12 @@ public class Screen {
 		 win1.add(heading);
 		 win1.add(sep1);
 		 win1.add(panel);
-		 win1.add(box1);
-		 win1.add(box2);
+		 win1.add(sp2);
+		 win1.add(sp3);
 		 win1.add(sp1);
 			 
 		 win1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 win1.setSize(500,500);
+		 win1.setSize(700,500);
 		 win1.setLayout(null);
 		 win1.setVisible(true);
 		 
@@ -156,7 +158,7 @@ public class Screen {
 		 flag1 = false;
 		 flag = true;
 		 flag2 = true;
-		 int x = 50,y = 50, counter = 25;
+		 int x = 50,y = 50, counter = 100;
 		 keyWords = dw.getWords();
 		 Arrays.sort(keyWords);
 		 System.out.println("Got where");
@@ -181,35 +183,30 @@ public class Screen {
 					});
 		 }
 		 	box2.setBounds(30,100,250,250);
-			box2.setBorder(clear);
+		 	sp3.setBounds(30,100,400,250);
+			sp3.setViewportView(box2);
+			//box2.setBorder(clear);
 }
 	 public void listScreen() {
 		 flag1 = true;
 		 flag = true;
 		 flag2 = false;
-		 String word[] = new String[100];
-		 String mean[] = new String[100];
+		 String word[][];
+		 String column[] = {"Word","Meaning"};
 		 
 		 DefaultWords dw = new DefaultWords();
 		 
-		 word = dw.getWords();
-		 mean = dw.getMean();
-
-		 DefaultTableModel model = new DefaultTableModel(); 
-		 model.addColumn("Word");
-		 model.addColumn("Meaning");
+		 word = dw.getList();
 		 
-		 model.addRow(new Object[]{word, mean});
-		 
-		 JTable table1 = new JTable(model);
+		 JTable table1 = new JTable(word,column);
 
 		 table1.setAutoCreateRowSorter(true);
 		 table1.setShowGrid(true);
 		 table1.setGridColor(Color.YELLOW);
 		 
 		 table1.setBounds(30,100,400,250);
-		 sp1.add(table1);
 		 sp1.setBounds(30,100,400,250);
-		 
+		 sp1.setViewportView(table1);
+		  
 	 }
 }

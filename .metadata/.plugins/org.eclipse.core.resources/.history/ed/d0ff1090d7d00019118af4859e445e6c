@@ -1,0 +1,26 @@
+import java.awt.Color;
+import java.awt.Cursor;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class DiffScreens {
+	private String key[] = new String[10];
+	public JLabel creatingLabels(int x, int y, int counter)
+	{
+		JLabel label = new JLabel();
+		DefaultWords dw = new DefaultWords();
+		
+		key = dw.getWords();
+		System.out.println("Got here");
+		
+		y = y + 25*counter;
+		
+		label.setText(key[counter]);
+		label.setBounds(x,y,1000,100);
+		label.setForeground(Color.BLUE.darker());
+		label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		return label;
+	}
+}

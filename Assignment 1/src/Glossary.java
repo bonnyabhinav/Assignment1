@@ -41,7 +41,7 @@ public class Glossary extends JFrame{
 			}
 		});
 		
-		gui.setSize(500,500);
+		gui.setSize(700,500);
 		gui.setLayout(null);
 		gui.setVisible(true);
 	}
