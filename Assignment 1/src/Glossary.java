@@ -7,10 +7,11 @@
  *
  */
 //import javax.swing.Icon;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import java.awt.Font;
 
 import java.awt.event.*;
 
@@ -28,10 +29,9 @@ public class Glossary extends JFrame{
 		
 		gui.setTitle("Easy to Use Glossary");
 		
-		Icon start = new ImageIcon("go_tigers.JPEG");
-		JButton begin = new JButton(start);
-		begin.setBounds(150,100,200,200);
-		begin.setIcon(start);
+		JButton begin = new JButton("Get Started");	
+		begin.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+		begin.setBounds(200,150,300,100);
 		gui.add(begin);
 		
 		begin.addActionListener(new ActionListener(){
